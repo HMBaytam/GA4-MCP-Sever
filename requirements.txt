@@ -60,3 +60,4 @@ urllib3==2.5.0
 uv==0.7.15
 uvicorn==0.34.3
 wheel==0.45.1
+ruff
