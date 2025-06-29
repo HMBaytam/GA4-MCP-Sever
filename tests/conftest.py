@@ -7,9 +7,6 @@ from unittest.mock import patch, MagicMock
 from fastmcp import Client
 
 from src.server import GA4MCPServer
-from src.config.settings import Settings
-from src.auth.credentials_manager import CredentialsManager
-from src.auth.oauth_manager import OAuthManager
 
 
 def extract_text_from_response(response):

@@ -1,6 +1,6 @@
 """GA4 client wrapper for analytics data retrieval."""
 
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, Optional
 from google.analytics.data_v1beta import BetaAnalyticsDataClient
 from google.analytics.admin_v1beta import AnalyticsAdminServiceClient
 from google.analytics.admin_v1beta.types import ListPropertiesRequest

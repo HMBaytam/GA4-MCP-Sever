@@ -2,7 +2,7 @@
 
 import json
 import os
-from typing import Tuple, Optional
+from typing import Tuple
 from google_auth_oauthlib.flow import Flow
 from google.oauth2.credentials import Credentials
 
