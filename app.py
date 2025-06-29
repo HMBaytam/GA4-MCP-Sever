@@ -6,6 +6,7 @@ while using the new modular architecture underneath.
 """
 
 import asyncio
+from src.main import main
 from src.server import GA4MCPServer
 
 # Create server instance

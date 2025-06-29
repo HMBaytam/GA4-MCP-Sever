@@ -1,8 +1,8 @@
 """Data validation utilities for GA4 MCP Server."""
 
 import re
-from typing import List
-from datetime import datetime
+from typing import List, Any, Optional
+from datetime import datetime, timedelta
 
 from .errors import GA4ServerError
 from .logging import get_logger

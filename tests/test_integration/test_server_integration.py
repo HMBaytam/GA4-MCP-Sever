@@ -3,6 +3,7 @@
 import pytest
 import os
 import json
+from unittest.mock import patch, MagicMock
 from fastmcp import Client
 
 from src.server import GA4MCPServer

@@ -1,5 +1,6 @@
 """Report building utilities for GA4 API requests."""
 
+from typing import List, Dict, Any, Optional
 from google.analytics.data_v1beta.types import (
     RunReportRequest,
     RunRealtimeReportRequest,
