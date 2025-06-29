@@ -3,19 +3,8 @@ import os
 import json
 from unittest.mock import patch, MagicMock
 from fastmcp import Client
-from app import mcp, _ga4_client, _oauth_credentials
 
-def extract_text_from_response(response):
-    """Extract text from FastMCP response."""
-    if isinstance(response, list) and len(response) > 0:
-        if hasattr(response[0], 'text'):
-            return response[0].text
-    return str(response)
-
-@pytest.fixture
-def client():
-    """Create a FastMCP client for testing."""
-    return Client(mcp)
+from .conftest import extract_text_from_response
 
 @pytest.fixture
 def cleanup():
