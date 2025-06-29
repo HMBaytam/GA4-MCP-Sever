@@ -1,6 +1,32 @@
-# GA4 MCP Server - Clean Code Refactored Version
+# GA4 MCP Server 
 
 A modular, maintainable Google Analytics 4 MCP (Model Context Protocol) server built following Clean Code principles.
+
+## 🏃‍♂️ Getting Started
+
+### Prerequisits 
+To be able to use your own instance of this MCP server you need to create your own Google Credentials and obtain the Client ID and Client Secret. 
+Steps to create [Google Cloud Client Credientials](https://developers.google.com/workspace/guides/create-credentials#oauth-client-id)
+
+Once you have obtained the Client ID and Client Seceret, add them to the .env.example file then change the name to .env
+
+### Quick Start
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Set environment variables
+export GA4_CLIENT_ID="your_client_id"
+export GA4_CLIENT_SECRET="your_client_secret"
+
+# Run the server
+fastmcp run app.py:mcp
+```
+
+### Install MCP to Claude Desktop
+```bash
+fastmcp install app.py:mcp
+```
 
 ## 🏗️ Architecture Overview
 
@@ -33,31 +59,6 @@ backend/
 ├── app_refactored.py            # Backward compatibility wrapper
 └── requirements.txt
 ```
-
-## 🎯 Clean Code Improvements
-
-### 1. **Single Responsibility Principle**
-- **OAuth Management**: `OAuthManager` handles only authentication flows
-- **Credentials Storage**: `CredentialsManager` manages credential persistence
-- **Data Formatting**: `DataFormatter` focuses solely on response formatting
-- **Report Building**: `ReportBuilder` constructs API requests
-
-### 2. **Separation of Concerns**
-- **Configuration**: Centralized in `config/` module with environment validation
-- **Error Handling**: Custom exception hierarchy in `utils/errors.py`
-- **Logging**: Structured logging setup in `utils/logging.py`
-- **Validation**: Input sanitization and validation in `utils/validation.py`
-
-### 3. **Improved Maintainability**
-- **Small Functions**: Large methods broken into focused units
-- **Clear Naming**: Descriptive function and variable names
-- **Type Safety**: Comprehensive type hints throughout
-- **Documentation**: Detailed docstrings for all public methods
-
-### 4. **Enhanced Reliability**
-- **Input Validation**: Property IDs, dates, metrics, and dimensions validated
-- **Error Handling**: Consistent error responses with proper logging
-- **Security**: Input sanitization to prevent injection attacks
 
 ## 🚀 Key Features
 
@@ -115,34 +116,6 @@ pytest tests/test_auth/
 pytest --cov=src tests/
 ```
 
-## 📊 Benefits Achieved
-
-### Code Quality Metrics
-- **Lines of Code**: Reduced from 734 lines in single file to modular structure
-- **Cyclomatic Complexity**: Large functions broken into smaller units
-- **Maintainability Index**: Significantly improved through modular design
-- **Test Coverage**: Comprehensive test suite with proper organization
-
-### Developer Experience
-- **Readability**: Clear module boundaries and responsibilities
-- **Extensibility**: Easy to add new GA4 features or modify existing ones
-- **Debugging**: Better error messages and logging throughout
-- **Documentation**: Self-documenting code with comprehensive docstrings
-
-### Operational Benefits
-- **Reliability**: Better error handling and input validation
-- **Security**: Input sanitization and validation
-- **Monitoring**: Structured logging for better observability
-- **Configuration**: Centralized environment variable management
-
-## 🔄 Backward Compatibility
-
-The refactored code maintains full backward compatibility:
-
-- `app_refactored.py` provides the same interface as the original `app.py`
-- All existing tests continue to work with minimal modifications
-- Same MCP tool interface and functionality
-
 ## 🛠️ Development Guidelines
 
 ### Adding New Features
@@ -168,30 +141,3 @@ The modular architecture enables easy extension:
 - **Better Error Handling**: Add specific error types to `utils/errors.py`
 - **Caching**: Add caching layer to improve performance
 - **Rate Limiting**: Implement API rate limiting
-
-## 🏃‍♂️ Getting Started
-
-### Quick Start
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Set environment variables
-export GA4_CLIENT_ID="your_client_id"
-export GA4_CLIENT_SECRET="your_client_secret"
-
-# Run the server
-python -m src.main
-```
-
-### Using the Refactored Version
-```python
-# Import the new modular server
-from src.server import GA4MCPServer
-
-# Create and run server
-server = GA4MCPServer()
-server.run()
-```
-
-This refactored version provides a solid foundation for maintaining and extending the GA4 MCP Server while following Clean Code principles and industry best practices.
